@@ -2,7 +2,6 @@ Particle [] group;
 void setup()
 {
   size(500, 500);
-  background(0, 0, 0);
   group = new Particle[100];
   for ( int i = 0; i < group.length; i++) {
     group[i] = new Particle();
@@ -10,9 +9,10 @@ void setup()
 }
 void draw()
 {
+  background(0, 0, 0);
   for (int i = 0; i < group.length; i++) {
-    group[i].show();
     group[i].move();
+    group[i].show();
   }
 }
 class Particle
@@ -30,12 +30,18 @@ class Particle
   }
 
   void show() {
-    background(0, 0, 0);
+    fill(255,255,255);
     ellipse((float)x, (float)y, 10, 10);
   }
 }
 
-class OddballParticle //inherits from NormalParticle
+class OddballParticle extends Particle //inherits from NormalParticle
 {
-  //your code here
+  void move() {
+    
+  }
+  void show() {
+    fill(255,255,255);
+    ellipse((float)x, (float)y, 25, 25);
+  }
 }
